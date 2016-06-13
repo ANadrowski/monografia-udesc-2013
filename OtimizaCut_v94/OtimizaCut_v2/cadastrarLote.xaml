@@ -1,0 +1,13 @@
+﻿<Window x:Class="OtimizaCut_v2.cadastrarLote"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cadastro de Lote - OtimizaCut" Height="180.527" Width="551.43" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Código:" HorizontalAlignment="Left" Margin="55,24,0,0" VerticalAlignment="Top"/>
+        <Label Content="Descrição:" HorizontalAlignment="Left" Margin="42,55,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="codigoLote" HorizontalAlignment="Left" Height="23" Margin="111,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="descricaoLote" HorizontalAlignment="Left" Height="23" Margin="111,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="399"/>
+        <Button x:Name="cadastrar" Content="Cadastrar" HorizontalAlignment="Left" Height="22" Margin="235,104,0,0" VerticalAlignment="Top" Width="131" Click="cadastrar_Click"/>
+        <Button x:Name="limpar" Content="Limpar" HorizontalAlignment="Left" Margin="371,104,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+    </Grid>
+</Window>

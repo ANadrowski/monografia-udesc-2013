@@ -1,0 +1,15 @@
+﻿<Window x:Class="OtimizaCut_v2.View"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Visualizador de Planos de Corte - OtimizaCut" Height="749.254" Width="1102.783" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid>
+        <Menu Height="22" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <MenuItem Header="Opções">
+                <MenuItem Header="Gerar Relatório de Cortes" HorizontalAlignment="Left" Width="280" Margin="0,0,-45,0" Click="gerarPlano" />
+                <Separator></Separator>
+                <MenuItem Header="Sair" HorizontalAlignment="Left" Width="210" Click="fechar" />
+            </MenuItem>
+        </Menu>
+        <TabControl x:Name="tabcontrolView" HorizontalAlignment="Left" Height="678" Margin="3,22,0,0" VerticalAlignment="Top" Width="994"/>
+    </Grid>
+</Window>

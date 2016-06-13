@@ -1,0 +1,88 @@
+﻿<Window x:Class="OtimizaCut_v2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="OtimizaCut - Aislan Systems" Height="749.328" Width="1381.166" WindowState="Maximized"
+         DataContext="{Binding RelativeSource={RelativeSource Self}}" Loaded="atualizarMaterial_Click" Icon="Logo.png">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Materiais">
+                <Grid Background="White">
+
+                    <GroupBox Header="Biblioteca de Materiais" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="581" Width="1343"/>
+                    <Button x:Name="adicionarMaterial" Content="Cadastrar" HorizontalAlignment="Left" Margin="31,530,0,0" VerticalAlignment="Top" Width="75" Click="adicionarMaterial_Click" Height="33"/>
+                    <Button x:Name="excluirMaterial" Content="Excluir" HorizontalAlignment="Left" Margin="227,530,0,0" VerticalAlignment="Top" Width="75" Height="33" Click="excluirMaterial_Click"/>
+                    <Button x:Name="editarMaterial" Content="Editar" HorizontalAlignment="Left" Margin="128,530,0,0" VerticalAlignment="Top" Width="75" Height="33" Click="editarMaterial_Click"/>
+                    <ListView x:Name="listview" Height="456" Margin="31,45,10,0" VerticalAlignment="Top">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Width="140" Header="Código" DisplayMemberBinding="{Binding Codigo}" />
+                                <GridViewColumn Width="140" Header="Descrição" DisplayMemberBinding="{Binding Descricao}"  />
+                                <GridViewColumn Width="140" Header="Comprimento" DisplayMemberBinding="{Binding Comprimento}"  />
+                                <GridViewColumn Width="140" Header="Largura" DisplayMemberBinding="{Binding Largura}"  />
+                                <GridViewColumn Width="140" Header="Espessura" DisplayMemberBinding="{Binding Espessura}"  />
+                                <GridViewColumn Width="140" Header="Cor" DisplayMemberBinding="{Binding Cor}"  />
+                                <GridViewColumn Width="140" Header="Tipo" DisplayMemberBinding="{Binding Tipo}"  />
+                                <GridViewColumn Width="140" Header="Tem veio" DisplayMemberBinding="{Binding Rotaciona}"  />
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Button x:Name="atualizarMaterial" Content="Refresh" HorizontalAlignment="Left" Margin="326,530,0,0" VerticalAlignment="Top" Width="74" Click="atualizarMaterial_Click" Height="33"/>
+                    <Button x:Name="botaoSair" Content="Sair" HorizontalAlignment="Left" Margin="502,530,0,0" VerticalAlignment="Top" Width="75" Height="33" Click="Button_Click_1"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Lotes">
+                <Grid Background="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <GroupBox Header="Lotes" HorizontalAlignment="Left" Height="582" Margin="10,10,0,0" VerticalAlignment="Top" Width="1343">
+                        <ListView x:Name="listviewLotes" HorizontalAlignment="Left" Height="453" Margin="15,19,0,0" VerticalAlignment="Top" Width="915" Loaded="refreshLote_Click" >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Width="140" Header="Código" DisplayMemberBinding="{Binding Codigo}"  />
+                                    <GridViewColumn Width="450" Header="Descrição" DisplayMemberBinding="{Binding Descricao}"  />
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </GroupBox>
+                    <Button x:Name="cadastrarLote" Content="Cadastrar" HorizontalAlignment="Left" Margin="31,530,0,0" VerticalAlignment="Top" Width="75" Height="33" Click="cadastrarLote_Click"/>
+                    <Button x:Name="editarLote" Content="Editar" HorizontalAlignment="Left" Margin="128,530,0,0" VerticalAlignment="Top" Width="75" Height="33" Click="editarLote_Click"/>
+                    <Button x:Name="excluirLote" Content="Excluir" HorizontalAlignment="Left" Margin="227,530,0,0" VerticalAlignment="Top" Width="75" Height="33" Click="excluirLote_Click"/>
+                    <Button x:Name="refreshLote" Content="Refresh" HorizontalAlignment="Left" Margin="326,530,0,0" VerticalAlignment="Top" Width="75" Height="33" Click="refreshLote_Click"/>
+                    <Button x:Name="sairLote" Content="Sair" HorizontalAlignment="Left" Margin="502,530,0,0" VerticalAlignment="Top" Width="75" Height="33" Click="Button_Click_3"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Configurações">
+                <Grid Background="White">
+                    <Label Content="Espessura da serra:" HorizontalAlignment="Left" Margin="46,49,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Refilos laterais:" HorizontalAlignment="Left" Margin="67,75,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="espessuraSerra" HorizontalAlignment="Left" Height="23" Margin="161,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="refilosLaterais" HorizontalAlignment="Left" Height="23" Margin="161,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <GroupBox Header="Parâmetros de configuração" HorizontalAlignment="Left" Margin="34,29,0,0" VerticalAlignment="Top" Height="177" Width="460">
+                        <CheckBox x:Name="mostraComLarg" Content="Exibir comprimento e largura no plano de corte" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="393" Margin="0,84,0,0"/>
+                    </GroupBox>
+                    <Button x:Name="salvarConfiguracoes" Content="Salvar" HorizontalAlignment="Left" Margin="419,401,0,0" VerticalAlignment="Top" Width="75" Click="salvarConfiguracoes_Click"/>
+                    <Label Content="(mm)" HorizontalAlignment="Left" Margin="282,78,0,0" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="mostraRefilos" Content="Exibir linhas de refilos lateriais no plano de corte" HorizontalAlignment="Left" Margin="40,149,0,0" VerticalAlignment="Top" Width="290"/>
+                    <CheckBox x:Name="mostraCortesIniciais" Content="Exibir apenas os cortes do primeiro ciclo (cortes verticais/cortes horizontais)" HorizontalAlignment="Left" Margin="40,169,0,0" VerticalAlignment="Top"/>
+                    <GroupBox x:Name="orientacaoCortesIniciais" Header="Orientação dos cortes iniciais da chapa" HorizontalAlignment="Left" Height="68" Margin="34,219,0,0" VerticalAlignment="Top" Width="460"/>
+                    <RadioButton x:Name="corteHorizontalSetado" Content="Horizontais" HorizontalAlignment="Left" Margin="40,241,0,0" VerticalAlignment="Top" GroupName="orientacaoCortesIniciaisDaChapa"/>
+                    <RadioButton x:Name="corteVerticalSetado" Content="Verticais" HorizontalAlignment="Left" Margin="40,261,0,0" VerticalAlignment="Top" GroupName="orientacaoCortesIniciaisDaChapa" />
+                    <GroupBox x:Name="opcaoRelatorio" Header="Configurações para geração do relatório de cortes" HorizontalAlignment="Left" Margin="34,305,0,0" VerticalAlignment="Top" Height="84" Width="460"/>
+                    <CheckBox x:Name="mostraDesenho" Content="Exibir desenho do plano de corte no relatório" HorizontalAlignment="Left" Margin="40,333,0,0" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="mostraEstatisticas" Content="Exibir estatísticas do plano de corte" HorizontalAlignment="Left" Margin="40,353,0,0" VerticalAlignment="Top"/>
+                    <Label Content="(mm)" HorizontalAlignment="Left" Margin="282,50,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Sobre">
+                <Grid Background="White">
+                   
+                    <Label Content="Desenvolvido por Aislan Nadrowski - Ano: 2013" Margin="83,275,0,0" VerticalAlignment="Bottom" Width="281" HorizontalAlignment="Center"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
